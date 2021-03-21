@@ -1,0 +1,3 @@
+type MainTabParamList = {
+  MainScreen: undefined
+}

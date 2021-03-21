@@ -3,8 +3,9 @@ import * as React from 'react'
 import TabBarIcon from '../components/TabBarIcon'
 import Colors from '../constants/Colors'
 import useColorScheme from '../hooks/useColorScheme'
-import TabOneNavigator from './tabs/TabOneNavigator'
-import TabTwoNavigator from './tabs/TabTwoNavigator'
+import CollectionTabStack from './tabs/CollectionTabStack'
+import MainTabStack from './tabs/MainTabStack'
+import SearchTabStack from './tabs/SearchTabStack'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -13,12 +14,12 @@ export default function BottomTabNavigator () {
 
   return (
     <BottomTab.Navigator
-      initialRouteName='TabOne'
+      initialRouteName='MainTab'
       tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
     >
       <BottomTab.Screen
-        name='TabOne'
-        component={TabOneNavigator}
+        name='MainTab'
+        component={MainTabStack}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name='ios-code' color={color} />
@@ -26,8 +27,17 @@ export default function BottomTabNavigator () {
         }}
       />
       <BottomTab.Screen
-        name='TabTwo'
-        component={TabTwoNavigator}
+        name='CollectionTab'
+        component={CollectionTabStack}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name='ios-code' color={color} />
+          )
+        }}
+      />
+      <BottomTab.Screen
+        name='SearchTab'
+        component={SearchTabStack}
         options={{
           tabBarIcon: ({ color }) => (
             <TabBarIcon name='ios-code' color={color} />
