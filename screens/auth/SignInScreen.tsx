@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { Button, StyleSheet } from 'react-native'
 import { View, Text } from '../../components/Themed'
 import { ScreenContext } from '../../contexts/ScreenContext'
+import { useLocal } from '../../hooks/useLocal'
 
 export default function SignInScreen () {
   const screenContext = useContext(ScreenContext)
@@ -15,6 +16,7 @@ export default function SignInScreen () {
   return (
     <View>
       <Text>SignInScreen</Text>
+      <Text>{useLocal({},"greeting")}</Text>
       <Button title='signin' onPress={signIn} />
     </View>
   )
